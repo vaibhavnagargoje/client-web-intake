@@ -3,27 +3,32 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Website Project Questionnaire</title>
+  <title>Client Questionnaire — Dark Basalt</title>
+  <meta name="description" content="Website project questionnaire by Dark Basalt. Fill this out so we can build the perfect website for you.">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&display=swap" rel="stylesheet">
 
   <style>
     *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
 
     :root {
-      --bg:       #0f1117;
-      --surface:  #1a1d27;
-      --border:   #2a2d3a;
-      --border2:  #3a3d50;
-      --text:     #e8eaf0;
-      --text2:    #9ca3b8;
-      --text3:    #6b7280;
-      --accent:   #6366f1;
-      --accent2:  #818cf8;
-      --success:  #10b981;
-      --radius:   12px;
-      --radius-sm:8px;
+      --bg:        #080a10;
+      --surface:   #111318;
+      --surface2:  #181b24;
+      --border:    #1e2130;
+      --border2:   #2a2e40;
+      --text:      #e8eaf6;
+      --text2:     #9ca3c8;
+      --text3:     #5c6280;
+      --accent:    #6366f1;
+      --accent2:   #818cf8;
+      --accent3:   #a5b4fc;
+      --violet:    #7c3aed;
+      --success:   #10b981;
+      --error:     #ef4444;
+      --radius:    14px;
+      --radius-sm: 9px;
     }
 
     body {
@@ -31,290 +36,519 @@
       background: var(--bg);
       min-height: 100vh;
       display: flex;
-      align-items: flex-start;
-      justify-content: center;
-      padding: 2rem 1rem 4rem;
+      flex-direction: column;
+      align-items: center;
+      padding: 0 1rem 5rem;
       color: var(--text);
+      background-image:
+        radial-gradient(ellipse 60% 40% at 50% -10%, rgba(99,102,241,.12) 0%, transparent 70%);
     }
 
-    /* ── CARD ─────────────────────────────── */
+    /* ── TOP NAV BAR ───────────────────────────────── */
+    .topbar {
+      width: 100%; max-width: 660px;
+      display: flex; align-items: center; justify-content: space-between;
+      padding: 1.4rem 0 1rem;
+    }
+    .brand {
+      display: flex; align-items: center; gap: 10px;
+    }
+    .brand-mark {
+      width: 34px; height: 34px; border-radius: 9px;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
+      display: flex; align-items: center; justify-content: center;
+      font-size: 16px; font-weight: 700; color: #fff;
+      box-shadow: 0 4px 14px rgba(99,102,241,.4);
+    }
+    .brand-name {
+      font-size: 15px; font-weight: 600; color: var(--text);
+      letter-spacing: -.01em;
+    }
+    .brand-name span { color: var(--accent2); }
+    .topbar-tag {
+      font-size: 11px; font-weight: 500; color: var(--text3);
+      background: var(--surface2); border: 1px solid var(--border2);
+      border-radius: 20px; padding: 4px 12px; letter-spacing: .04em;
+    }
+
+    /* ── CARD ──────────────────────────────────────── */
     .card {
-      width: 100%;
-      max-width: 620px;
+      width: 100%; max-width: 660px;
       background: var(--surface);
       border: 1px solid var(--border);
-      border-radius: 18px;
+      border-radius: 20px;
       overflow: hidden;
-      box-shadow: 0 24px 64px rgba(0,0,0,.5), 0 0 0 1px rgba(99,102,241,.06);
+      box-shadow:
+        0 30px 80px rgba(0,0,0,.6),
+        0 0 0 1px rgba(99,102,241,.07),
+        inset 0 1px 0 rgba(255,255,255,.04);
     }
 
-    /* ── HEADER ───────────────────────────── */
+    /* ── HEADER ────────────────────────────────────── */
     .header {
-      padding: 1.75rem 1.75rem 1.25rem;
+      padding: 1.75rem 1.75rem 1.4rem;
       border-bottom: 1px solid var(--border);
-      background: linear-gradient(135deg, rgba(99,102,241,.08) 0%, transparent 60%);
+      background: linear-gradient(160deg, rgba(99,102,241,.07) 0%, transparent 55%);
+      position: relative; overflow: hidden;
     }
-    .header-tag {
+    .header::before {
+      content: ''; position: absolute; top: -40px; right: -40px;
+      width: 200px; height: 200px; border-radius: 50%;
+      background: radial-gradient(circle, rgba(99,102,241,.1) 0%, transparent 70%);
+      pointer-events: none;
+    }
+    .header-eyebrow {
       display: inline-flex; align-items: center; gap: 6px;
-      font-size: 11px; font-weight: 600; letter-spacing: .08em;
+      font-size: 11px; font-weight: 600; letter-spacing: .09em;
       text-transform: uppercase; color: var(--accent2);
-      background: rgba(99,102,241,.12); border: 1px solid rgba(99,102,241,.2);
-      border-radius: 20px; padding: 3px 10px; margin-bottom: 10px;
+      margin-bottom: 10px;
     }
-    .header h1 { font-size: 20px; font-weight: 600; color: var(--text); line-height: 1.3; }
-    .header p  { font-size: 13px; color: var(--text2); margin-top: 5px; line-height: 1.5; }
+    .header-eyebrow::before {
+      content: ''; width: 6px; height: 6px; border-radius: 50%;
+      background: var(--accent); display: inline-block;
+      box-shadow: 0 0 6px var(--accent);
+    }
+    .header h1 {
+      font-size: 21px; font-weight: 700; color: var(--text);
+      line-height: 1.25; letter-spacing: -.02em;
+    }
+    .header h1 span { color: var(--accent2); }
+    .header p { font-size: 13px; color: var(--text2); margin-top: 6px; line-height: 1.55; }
 
-    /* ── PROGRESS ─────────────────────────── */
-    .progress { height: 3px; background: var(--border); }
-    .progress-bar { height: 100%; background: linear-gradient(90deg, var(--accent), var(--accent2)); transition: width .35s ease; border-radius: 2px; }
+    /* ── PROGRESS ──────────────────────────────────── */
+    .progress { height: 2px; background: var(--border); }
+    .progress-bar {
+      height: 100%;
+      background: linear-gradient(90deg, var(--accent), var(--accent2));
+      transition: width .4s cubic-bezier(.4,0,.2,1);
+    }
 
-    /* ── STEP INDICATOR ───────────────────── */
+    /* ── STEP INDICATOR ────────────────────────────── */
+    .step-scroll { overflow-x: auto; scrollbar-width: none; }
+    .step-scroll::-webkit-scrollbar { display: none; }
     .step-ind {
-      display: flex; align-items: center; gap: 0;
+      display: flex; align-items: center;
       padding: .9rem 1.75rem;
       border-bottom: 1px solid var(--border);
+      gap: 0; min-width: max-content;
     }
     .step-dot {
       width: 28px; height: 28px; border-radius: 50%;
       font-size: 11px; font-weight: 600;
       display: flex; align-items: center; justify-content: center;
       border: 1.5px solid var(--border2); color: var(--text3);
-      transition: all .2s; flex-shrink: 0;
+      transition: all .25s; flex-shrink: 0;
     }
-    .step-dot.cur  { border-color: var(--accent); color: var(--accent); background: rgba(99,102,241,.1); }
+    .step-dot.cur  { border-color: var(--accent); color: var(--accent); background: rgba(99,102,241,.12); box-shadow: 0 0 0 4px rgba(99,102,241,.1); }
     .step-dot.done { border-color: var(--accent); background: var(--accent); color: #fff; }
-    .step-line { flex: 1; height: 1px; background: var(--border); margin: 0 4px; transition: background .2s; }
+    .step-line { width: 28px; height: 1px; background: var(--border); margin: 0 2px; transition: background .25s; flex-shrink: 0; }
     .step-line.done { background: var(--accent); }
-    .step-label { font-size: 11px; color: var(--text3); text-align: center; margin-top: 3px; }
 
-    /* ── STEPS ────────────────────────────── */
+    /* ── STEPS ─────────────────────────────────────── */
     .step { display: none; }
-    .step.active { display: block; }
+    .step.active { display: block; animation: fadeSlide .2s ease; }
+    @keyframes fadeSlide { from { opacity:0; transform:translateY(6px); } to { opacity:1; transform:translateY(0); } }
+
     .section { padding: 1.5rem 1.75rem; }
     .section + .section { border-top: 1px solid var(--border); }
     .section-title {
-      font-size: 11px; font-weight: 600; color: var(--accent2);
-      text-transform: uppercase; letter-spacing: .08em; margin-bottom: 1.25rem;
+      font-size: 10.5px; font-weight: 700; color: var(--accent2);
+      text-transform: uppercase; letter-spacing: .1em; margin-bottom: 1.25rem;
+      display: flex; align-items: center; gap: 7px;
+    }
+    .section-title::after {
+      content: ''; flex: 1; height: 1px; background: var(--border);
     }
 
-    /* ── QUESTIONS ────────────────────────── */
-    .q { margin-bottom: 1.25rem; }
+    /* ── QUESTIONS ─────────────────────────────────── */
+    .q { margin-bottom: 1.3rem; }
     .q:last-child { margin-bottom: 0; }
-    .q label { display: block; font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; }
-    .q .hint  { font-size: 12px; color: var(--text3); margin-bottom: 8px; line-height: 1.4; }
-    .q span.opt { font-weight: 400; color: var(--text3); }
+    .q label { display: block; font-size: 14px; font-weight: 500; color: var(--text); margin-bottom: 6px; line-height: 1.4; }
+    .q .hint  { font-size: 12px; color: var(--text3); margin-bottom: 9px; line-height: 1.5; }
+    .q .opt   { font-weight: 400; color: var(--text3); font-size: 13px; }
 
     /* inputs */
     .q input[type=text],
     .q input[type=email],
+    .q input[type=date],
+    .q input[type=time],
     .q textarea,
     .q select {
       width: 100%;
       border: 1px solid var(--border2);
       border-radius: var(--radius-sm);
       padding: 10px 13px;
-      font-size: 14px;
-      font-family: 'Inter', sans-serif;
+      font-size: 14px; font-family: 'Inter', sans-serif;
       color: var(--text);
-      background: rgba(255,255,255,.03);
+      background: rgba(255,255,255,.025);
       resize: vertical;
-      transition: border-color .15s, box-shadow .15s;
+      transition: border-color .15s, box-shadow .15s, background .15s;
+      -webkit-appearance: none;
     }
-    .q input[type=text]:focus,
-    .q input[type=email]:focus,
-    .q textarea:focus {
+    .q input[type=date]::-webkit-calendar-picker-indicator,
+    .q input[type=time]::-webkit-calendar-picker-indicator {
+      filter: invert(.6); cursor: pointer;
+    }
+    .q input:focus, .q textarea:focus, .q select:focus {
       outline: none;
       border-color: var(--accent);
-      box-shadow: 0 0 0 3px rgba(99,102,241,.15);
+      background: rgba(99,102,241,.05);
+      box-shadow: 0 0 0 3px rgba(99,102,241,.14);
     }
     .q input::placeholder, .q textarea::placeholder { color: var(--text3); }
     .q textarea { min-height: 80px; }
+    .q select option { background: #1a1d27; }
+
+    /* two-col grid */
+    .two-col { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; }
+    @media (max-width: 480px) { .two-col { grid-template-columns: 1fr; } }
 
     /* chips */
     .chips { display: flex; flex-wrap: wrap; gap: 7px; margin-top: 2px; }
     .chip {
-      border: 1px solid var(--border2);
-      border-radius: 20px;
-      padding: 6px 14px;
-      font-size: 13px; font-family: 'Inter', sans-serif;
-      color: var(--text2);
-      background: transparent;
-      cursor: pointer;
-      transition: all .15s;
+      border: 1px solid var(--border2); border-radius: 20px;
+      padding: 6px 14px; font-size: 13px; font-family: 'Inter', sans-serif;
+      color: var(--text2); background: transparent; cursor: pointer;
+      transition: all .15s; white-space: nowrap;
     }
-    .chip:hover { border-color: var(--accent2); color: var(--text); }
-    .chip.on {
-      background: rgba(99,102,241,.18);
-      border-color: var(--accent);
-      color: var(--accent2);
-      font-weight: 500;
-    }
+    .chip:hover { border-color: var(--accent2); color: var(--text); background: rgba(99,102,241,.06); }
+    .chip.on { background: rgba(99,102,241,.18); border-color: var(--accent); color: var(--accent3); font-weight: 500; }
 
     /* radio */
     .radio-group { display: flex; flex-direction: column; gap: 7px; }
     .radio-opt {
       display: flex; align-items: center; gap: 12px;
-      padding: 10px 13px;
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-sm);
-      cursor: pointer;
-      transition: all .15s;
+      padding: 10px 14px; border: 1px solid var(--border2);
+      border-radius: var(--radius-sm); cursor: pointer; transition: all .15s;
     }
-    .radio-opt:hover { border-color: var(--accent2); }
-    .radio-opt.on   { background: rgba(99,102,241,.1); border-color: var(--accent); }
+    .radio-opt:hover { border-color: var(--accent2); background: rgba(99,102,241,.04); }
+    .radio-opt.on { background: rgba(99,102,241,.1); border-color: var(--accent); }
     .radio-opt .dot {
       width: 18px; height: 18px; border-radius: 50%;
-      border: 1.5px solid var(--border2);
-      flex-shrink: 0; display: flex; align-items: center; justify-content: center;
+      border: 1.5px solid var(--border2); flex-shrink: 0;
+      display: flex; align-items: center; justify-content: center;
       transition: all .15s;
     }
     .radio-opt.on .dot { border-color: var(--accent); background: var(--accent); }
     .radio-opt.on .dot::after { content: ''; width: 7px; height: 7px; border-radius: 50%; background: #fff; }
-    .radio-opt span  { font-size: 14px; color: var(--text); }
+    .radio-opt span { font-size: 14px; color: var(--text); line-height: 1.4; }
+    .radio-opt .sub { font-size: 12px; color: var(--text3); margin-top: 1px; }
 
-    /* other-input reveal */
+    /* reveal */
     .other-wrap { margin-top: 8px; display: none; }
     .other-wrap.show { display: block; }
 
-    /* ── FOOTER / BUTTONS ─────────────────── */
+    /* ── FOOTER ────────────────────────────────────── */
     .footer {
-      padding: 1.25rem 1.75rem;
-      display: flex; justify-content: flex-end; gap: 10px;
+      padding: 1.2rem 1.75rem;
+      display: flex; justify-content: space-between; align-items: center;
       border-top: 1px solid var(--border);
-      background: rgba(0,0,0,.15);
+      background: rgba(0,0,0,.2);
     }
+    .footer-left { font-size: 12px; color: var(--text3); }
+    .footer-btns { display: flex; gap: 10px; }
     .btn-sec {
-      border: 1px solid var(--border2);
-      border-radius: var(--radius-sm);
-      padding: 9px 20px;
-      font-size: 13px; font-weight: 500; font-family: 'Inter', sans-serif;
-      background: transparent;
-      color: var(--text2);
-      cursor: pointer;
-      transition: all .15s;
+      border: 1px solid var(--border2); border-radius: var(--radius-sm);
+      padding: 9px 20px; font-size: 13px; font-weight: 500; font-family: 'Inter', sans-serif;
+      background: transparent; color: var(--text2); cursor: pointer; transition: all .15s;
     }
     .btn-sec:hover { border-color: var(--accent2); color: var(--text); }
     .btn-pri {
-      border: none;
-      border-radius: var(--radius-sm);
-      padding: 9px 24px;
-      font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif;
-      background: linear-gradient(135deg, var(--accent), #8b5cf6);
-      color: #fff;
-      cursor: pointer;
-      transition: all .2s;
-      box-shadow: 0 4px 14px rgba(99,102,241,.35);
+      border: none; border-radius: var(--radius-sm);
+      padding: 9px 26px; font-size: 13px; font-weight: 600; font-family: 'Inter', sans-serif;
+      background: linear-gradient(135deg, var(--accent) 0%, var(--violet) 100%);
+      color: #fff; cursor: pointer; transition: all .2s;
+      box-shadow: 0 4px 16px rgba(99,102,241,.4);
     }
-    .btn-pri:hover { transform: translateY(-1px); box-shadow: 0 6px 20px rgba(99,102,241,.45); }
+    .btn-pri:hover { transform: translateY(-1px); box-shadow: 0 6px 22px rgba(99,102,241,.5); }
     .btn-pri:active { transform: translateY(0); }
-    .btn-pri:disabled { opacity: .6; cursor: not-allowed; transform: none; }
+    .btn-pri:disabled { opacity: .55; cursor: not-allowed; transform: none; box-shadow: none; }
 
-    /* ── SUCCESS SCREEN ───────────────────── */
+    /* ── SUCCESS ───────────────────────────────────── */
     #success-screen {
-      display: none;
-      padding: 3rem 2rem;
+      display: none; padding: 3.5rem 2rem;
       text-align: center;
     }
     .success-icon {
-      width: 64px; height: 64px; border-radius: 50%;
-      background: rgba(16,185,129,.15);
-      border: 2px solid var(--success);
+      width: 72px; height: 72px; border-radius: 50%;
+      background: rgba(16,185,129,.12); border: 2px solid var(--success);
       display: flex; align-items: center; justify-content: center;
-      margin: 0 auto 1.25rem;
-      font-size: 28px;
+      margin: 0 auto 1.4rem; font-size: 32px;
+      animation: pop .4s cubic-bezier(.175,.885,.32,1.275);
     }
-    #success-screen h2 { font-size: 20px; font-weight: 600; color: var(--text); margin-bottom: 8px; }
-    #success-screen p  { font-size: 14px; color: var(--text2); line-height: 1.6; }
+    @keyframes pop { from { transform: scale(.5); opacity:0; } to { transform: scale(1); opacity:1; } }
+    #success-screen h2 { font-size: 22px; font-weight: 700; color: var(--text); margin-bottom: 10px; }
+    #success-screen p  { font-size: 14px; color: var(--text2); line-height: 1.65; max-width: 380px; margin: 0 auto; }
+    #success-screen .success-brand {
+      margin-top: 2rem; font-size: 12px; color: var(--text3);
+      display: flex; align-items: center; justify-content: center; gap: 6px;
+    }
 
-    /* ── ERROR BANNER ─────────────────────── */
+    /* ── ERROR BANNER ──────────────────────────────── */
     #error-banner {
       display: none;
       margin: 0 1.75rem 1rem;
       padding: 10px 14px;
-      background: rgba(239,68,68,.1);
-      border: 1px solid rgba(239,68,68,.3);
+      background: rgba(239,68,68,.08);
+      border: 1px solid rgba(239,68,68,.25);
       border-radius: var(--radius-sm);
-      font-size: 13px; color: #f87171;
+      font-size: 13px; color: #f87171; line-height: 1.4;
     }
 
-    /* ── LOADING SPINNER ──────────────────── */
+    /* ── SPINNER ───────────────────────────────────── */
     .spinner {
-      display: inline-block;
-      width: 14px; height: 14px;
-      border: 2px solid rgba(255,255,255,.3);
-      border-top-color: #fff;
-      border-radius: 50%;
-      animation: spin .6s linear infinite;
-      margin-right: 6px; vertical-align: middle;
+      display: inline-block; width: 13px; height: 13px;
+      border: 2px solid rgba(255,255,255,.25); border-top-color: #fff;
+      border-radius: 50%; animation: spin .6s linear infinite;
+      margin-right: 7px; vertical-align: middle;
     }
     @keyframes spin { to { transform: rotate(360deg); } }
+
+    /* ── MEETING CARD ──────────────────────────────── */
+    .meeting-card {
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius);
+      padding: 1rem 1.25rem;
+      margin-bottom: 1rem;
+    }
+    .meeting-card h4 { font-size: 13px; font-weight: 600; color: var(--text); margin-bottom: 3px; }
+    .meeting-card p  { font-size: 12px; color: var(--text3); line-height: 1.4; }
+
+    /* ── INFO BOX ──────────────────────────────────── */
+    .info-box {
+      background: rgba(99,102,241,.07);
+      border: 1px solid rgba(99,102,241,.18);
+      border-radius: var(--radius-sm);
+      padding: 10px 14px;
+      font-size: 12.5px; color: var(--accent3);
+      line-height: 1.5; margin-bottom: 1.25rem;
+    }
+
+    /* ── FILE UPLOAD ───────────────────────────────── */
+    .file-drop {
+      border: 1.5px dashed var(--border2);
+      border-radius: var(--radius-sm);
+      padding: 1.4rem 1rem;
+      text-align: center;
+      cursor: pointer;
+      transition: all .2s;
+      position: relative;
+      background: rgba(255,255,255,.015);
+    }
+    .file-drop:hover, .file-drop.drag-over {
+      border-color: var(--accent);
+      background: rgba(99,102,241,.06);
+    }
+    .file-drop input[type=file] {
+      position: absolute; inset: 0;
+      width: 100%; height: 100%;
+      opacity: 0; cursor: pointer;
+    }
+    .file-drop-icon { font-size: 26px; margin-bottom: 6px; }
+    .file-drop-title {
+      font-size: 13px; font-weight: 500; color: var(--text);
+      margin-bottom: 3px;
+    }
+    .file-drop-sub { font-size: 11.5px; color: var(--text3); }
+    .file-drop-sub span { color: var(--accent2); text-decoration: underline; }
+    .file-preview {
+      display: none;
+      margin-top: 10px;
+      background: var(--surface2);
+      border: 1px solid var(--border2);
+      border-radius: var(--radius-sm);
+      padding: 9px 12px;
+      display: none;
+      align-items: center;
+      gap: 10px;
+    }
+    .file-preview.show { display: flex; }
+    .file-preview-icon { font-size: 20px; flex-shrink: 0; }
+    .file-preview-info { flex: 1; min-width: 0; }
+    .file-preview-name {
+      font-size: 13px; font-weight: 500; color: var(--text);
+      white-space: nowrap; overflow: hidden; text-overflow: ellipsis;
+    }
+    .file-preview-size { font-size: 11px; color: var(--text3); margin-top: 1px; }
+    .file-remove {
+      background: none; border: none; cursor: pointer;
+      color: var(--text3); font-size: 16px; padding: 2px 4px;
+      border-radius: 4px; transition: color .15s;
+      flex-shrink: 0;
+    }
+    .file-remove:hover { color: #f87171; }
   </style>
 </head>
 <body>
+
+<!-- TOP NAV -->
+<div class="topbar">
+  <div class="brand">
+    <div class="brand-mark">DB</div>
+    <div class="brand-name">Dark<span>Basalt</span></div>
+  </div>
+  <div class="topbar-tag">Client Questionnaire</div>
+</div>
 
 <div class="card">
 
   <!-- HEADER -->
   <div class="header">
-    <div class="header-tag">📋 Client Intake</div>
-    <h1>Website Project Questionnaire</h1>
-    <p>Fill this out so we can plan your website accurately. Takes about 5 minutes.</p>
+    <div class="header-eyebrow">Website Project Brief</div>
+    <h1>Tell us about your <span>business</span></h1>
+    <p>This questionnaire helps us build the right website for you — takes about 5–8 minutes. All answers go directly to the Dark Basalt team.</p>
   </div>
 
   <!-- PROGRESS BAR -->
-  <div class="progress"><div class="progress-bar" id="prog" style="width:20%"></div></div>
+  <div class="progress"><div class="progress-bar" id="prog" style="width:14.28%"></div></div>
 
-  <!-- STEP INDICATORS -->
-  <div class="step-ind" id="step-ind">
-    <div class="step-dot cur" id="sd1">1</div>
-    <div class="step-line" id="sl1"></div>
-    <div class="step-dot" id="sd2">2</div>
-    <div class="step-line" id="sl2"></div>
-    <div class="step-dot" id="sd3">3</div>
-    <div class="step-line" id="sl3"></div>
-    <div class="step-dot" id="sd4">4</div>
-    <div class="step-line" id="sl4"></div>
-    <div class="step-dot" id="sd5">5</div>
+  <!-- STEP INDICATORS (7 steps) -->
+  <div class="step-scroll">
+    <div class="step-ind" id="step-ind">
+      <div class="step-dot cur" id="sd1">1</div>
+      <div class="step-line" id="sl1"></div>
+      <div class="step-dot" id="sd2">2</div>
+      <div class="step-line" id="sl2"></div>
+      <div class="step-dot" id="sd3">3</div>
+      <div class="step-line" id="sl3"></div>
+      <div class="step-dot" id="sd4">4</div>
+      <div class="step-line" id="sl4"></div>
+      <div class="step-dot" id="sd5">5</div>
+      <div class="step-line" id="sl5"></div>
+      <div class="step-dot" id="sd6">6</div>
+      <div class="step-line" id="sl6"></div>
+      <div class="step-dot" id="sd7">7</div>
+    </div>
   </div>
 
   <!-- ERROR BANNER -->
-  <div id="error-banner">⚠️ Something went wrong. Please try again or email us directly.</div>
+  <div id="error-banner"></div>
 
-  <!-- ══════════ STEP 1 — Basic Info ══════════ -->
+  <!-- ════════════════════════════════════════
+       STEP 1 — Basic Info
+  ════════════════════════════════════════ -->
   <div class="step active" id="step1">
     <div class="section">
       <div class="section-title">Basic Info</div>
 
-      <div class="q">
-        <label for="f-name">Company / client name</label>
-        <input type="text" id="f-name" name="Company Name" placeholder="e.g. Sharma & Associates">
+      <div class="two-col">
+        <div class="q">
+          <label for="f-name">Company / client name *</label>
+          <input type="text" id="f-name" placeholder="e.g. Acme Corp.">
+        </div>
+        <div class="q">
+          <label for="f-email">Your email address *</label>
+          <input type="email" id="f-email" placeholder="you@example.com">
+        </div>
       </div>
 
-      <div class="q">
-        <label for="f-email">Your email address</label>
-        <input type="email" id="f-email" name="Email" placeholder="you@example.com">
+      <div class="two-col">
+        <div class="q">
+          <label for="f-phone">WhatsApp / phone number</label>
+          <input type="text" id="f-phone" placeholder="+1 234 567 8900">
+        </div>
+        <div class="q">
+          <label for="f-contact">Your name / point of contact</label>
+          <input type="text" id="f-contact" placeholder="e.g. Jane Smith">
+        </div>
       </div>
 
       <div class="q">
         <label for="f-url">Current website URL <span class="opt">(if you have one)</span></label>
-        <input type="text" id="f-url" name="Current URL" placeholder="e.g. www.yourcompany.com or 'none'">
+        <input type="text" id="f-url" placeholder="www.yourcompany.com or 'none'">
       </div>
 
       <div class="q">
-        <label for="f-about">What does your company do?</label>
-        <div class="hint">2–3 lines is enough</div>
-        <textarea id="f-about" name="About Company" placeholder="e.g. We are a civil engineering firm based in Mumbai, specialising in…"></textarea>
-      </div>
-
-      <div class="q">
-        <label for="f-contact">Primary contact person</label>
-        <input type="text" id="f-contact" name="Primary Contact" placeholder="Name, phone number">
+        <label for="f-location">City / country you operate from</label>
+        <input type="text" id="f-location" placeholder="e.g. New York, USA">
       </div>
     </div>
   </div>
 
-  <!-- ══════════ STEP 2 — Pages & Content ══════════ -->
+  <!-- ════════════════════════════════════════
+       STEP 2 — Your Business
+  ════════════════════════════════════════ -->
   <div class="step" id="step2">
+    <div class="section">
+      <div class="section-title">Your Business</div>
+
+      <div class="q">
+        <label for="f-about">What does your company do?</label>
+        <div class="hint">Be as specific as possible — what you offer, who you serve, where you operate.</div>
+        <textarea id="f-about" placeholder="e.g. We are a boutique talent agency based in New York, connecting brands with micro-influencers in the fitness and wellness space…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="f-industry">What industry / niche are you in?</label>
+        <input type="text" id="f-industry" placeholder="e.g. SaaS, Real Estate, Fashion, Consulting, E-commerce…">
+      </div>
+
+      <div class="q">
+        <label for="f-audience">Who is your target audience?</label>
+        <div class="hint">Think about age group, profession, location, income level, or any traits that define your ideal customer.</div>
+        <textarea id="f-audience" placeholder="e.g. Small business owners aged 30–50 in the US who want to grow their online presence without hiring a full team…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="f-problem">What problem do you solve for your customers?</label>
+        <textarea id="f-problem" placeholder="e.g. Most agencies charge a fortune and take months. We deliver polished websites in under a week at a fraction of the cost…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="f-usp">What makes you different from competitors?</label>
+        <div class="hint">Your USP (Unique Selling Point) — what should visitors remember about you?</div>
+        <textarea id="f-usp" placeholder="e.g. We're the only agency that guarantees delivery in 7 days or you get a full refund…"></textarea>
+      </div>
+
+      <div class="q">
+        <label for="f-tagline">Do you have a tagline or brand message? <span class="opt">(optional)</span></label>
+        <input type="text" id="f-tagline" placeholder="e.g. 'Built to last. Designed to grow.'">
+      </div>
+
+      <div class="q">
+        <label for="f-competitors">Any competitor websites you're aware of?</label>
+        <div class="hint">Helps us understand your market positioning.</div>
+        <input type="text" id="f-competitors" placeholder="e.g. competitor1.com, competitor2.com">
+      </div>
+
+      <div class="q">
+        <label>What is the #1 action you want visitors to take on your website?</label>
+        <div class="radio-group" id="cta-rg">
+          <div class="radio-opt" data-v="Book a call"><div class="dot"></div><span>Book a call / consultation</span></div>
+          <div class="radio-opt" data-v="Fill a contact form"><div class="dot"></div><span>Fill a contact form / enquire</span></div>
+          <div class="radio-opt" data-v="Buy a product"><div class="dot"></div><span>Buy a product / service directly</span></div>
+          <div class="radio-opt" data-v="Sign up / register"><div class="dot"></div><span>Sign up / register / create account</span></div>
+          <div class="radio-opt" data-v="Just browse / learn"><div class="dot"></div><span>Just browse — inform them about us</span></div>
+          <div class="radio-opt" data-v="Download / subscribe"><div class="dot"></div><span>Download something / subscribe to newsletter</span></div>
+        </div>
+      </div>
+
+      <div class="q">
+        <label>Upload a file <span class="opt">(optional — logo, brand doc, reference, etc.)</span></label>
+        <div class="hint">PDF, PNG, JPG, DOCX, ZIP — max 1 MB </div>
+        <div class="file-drop" id="file-drop-zone">
+          <input type="file" id="f-attachment" accept=".pdf,.png,.jpg,.jpeg,.gif,.docx,.doc,.zip,.svg" aria-label="Upload a file">
+          <div class="file-drop-icon">📎</div>
+          <div class="file-drop-title">Drop a file here</div>
+          <div class="file-drop-sub">or <span>browse to upload</span></div>
+        </div>
+        <div class="file-preview" id="file-preview">
+          <div class="file-preview-icon" id="file-preview-icon">📄</div>
+          <div class="file-preview-info">
+            <div class="file-preview-name" id="file-preview-name"></div>
+            <div class="file-preview-size" id="file-preview-size"></div>
+          </div>
+          <button type="button" class="file-remove" id="file-remove" title="Remove file">✕</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       STEP 3 — Pages & Content
+  ════════════════════════════════════════ -->
+  <div class="step" id="step3">
     <div class="section">
       <div class="section-title">Pages &amp; Content</div>
 
@@ -322,7 +556,7 @@
         <label>Which pages do you need? <span class="opt">(select all that apply)</span></label>
         <div class="chips" id="pages-chips">
           <button type="button" class="chip" data-v="Home">Home</button>
-          <button type="button" class="chip" data-v="About">About</button>
+          <button type="button" class="chip" data-v="About">About Us</button>
           <button type="button" class="chip" data-v="Services">Services</button>
           <button type="button" class="chip" data-v="Portfolio">Portfolio / Work</button>
           <button type="button" class="chip" data-v="Team">Team</button>
@@ -331,205 +565,357 @@
           <button type="button" class="chip" data-v="Contact">Contact</button>
           <button type="button" class="chip" data-v="FAQ">FAQ</button>
           <button type="button" class="chip" data-v="Careers">Careers</button>
+          <button type="button" class="chip" data-v="Pricing">Pricing</button>
+          <button type="button" class="chip" data-v="Landing page">Landing page</button>
+          <button type="button" class="chip" data-v="Case studies">Case studies</button>
           <button type="button" class="chip other-trigger" data-v="Other" data-target="pages-other">+ Other</button>
         </div>
         <div class="other-wrap" id="pages-other">
-          <input type="text" id="f-pages-other" name="Other Pages" placeholder="List other pages…">
+          <input type="text" id="f-pages-other" placeholder="List other pages…">
         </div>
       </div>
 
       <div class="q">
-        <label>Do you want a blog?</label>
+        <label>Do you want a blog / news section?</label>
         <div class="radio-group" id="blog-rg">
-          <div class="radio-opt" data-v="Yes"><div class="dot"></div><span>Yes — I want to write and publish posts</span></div>
-          <div class="radio-opt" data-v="No"><div class="dot"></div><span>No — not needed</span></div>
+          <div class="radio-opt" data-v="Yes"><div class="dot"></div><span>Yes — I'll write and publish posts</span></div>
+          <div class="radio-opt" data-v="No"><div class="dot"></div><span>No — not needed right now</span></div>
           <div class="radio-opt" data-v="Maybe later"><div class="dot"></div><span>Maybe later — keep it as an option</span></div>
         </div>
       </div>
 
       <div class="q">
-        <label>Is your written content (text) ready?</label>
+        <label>Is your written content (text/copy) ready?</label>
         <div class="radio-group" id="copy-rg">
           <div class="radio-opt" data-v="All ready"><div class="dot"></div><span>All ready — I'll provide everything</span></div>
           <div class="radio-opt" data-v="Partially ready"><div class="dot"></div><span>Partially ready — some pages still need work</span></div>
           <div class="radio-opt" data-v="Need help"><div class="dot"></div><span>Need help — I need copywriting support</span></div>
         </div>
       </div>
-    </div>
-  </div>
-
-  <!-- ══════════ STEP 3 — Admin & Design ══════════ -->
-  <div class="step" id="step3">
-    <div class="section">
-      <div class="section-title">Admin &amp; Design</div>
 
       <div class="q">
-        <label>How do you want to update content after launch?</label>
-        <div class="radio-group" id="cms-rg">
-          <div class="radio-opt" data-v="Admin panel"><div class="dot"></div><span>Admin panel / CMS — edit text & photos myself</span></div>
-          <div class="radio-opt" data-v="Developer updates"><div class="dot"></div><span>Developer updates — I'll ask the dev team each time</span></div>
-          <div class="radio-opt" data-v="Not sure"><div class="dot"></div><span>Not sure — need guidance</span></div>
-        </div>
-      </div>
-
-      <div class="q">
-        <label>Media files you have ready <span class="opt">(select all)</span></label>
+        <label>Media files you already have <span class="opt">(select all)</span></label>
         <div class="chips" id="media-chips">
           <button type="button" class="chip" data-v="Logo">Logo</button>
           <button type="button" class="chip" data-v="Photos">Photos / images</button>
           <button type="button" class="chip" data-v="Videos">Videos</button>
           <button type="button" class="chip" data-v="PDFs">PDFs / brochures</button>
           <button type="button" class="chip" data-v="Brand guide">Brand guidelines</button>
+          <button type="button" class="chip" data-v="Icons">Icons / illustrations</button>
           <button type="button" class="chip" data-v="None">None yet</button>
         </div>
       </div>
+    </div>
+  </div>
+
+  <!-- ════════════════════════════════════════
+       STEP 4 — Design & Admin
+  ════════════════════════════════════════ -->
+  <div class="step" id="step4">
+    <div class="section">
+      <div class="section-title">Design &amp; Admin</div>
 
       <div class="q">
         <label>Design style preference <span class="opt">(select all that apply)</span></label>
         <div class="chips" id="style-chips">
           <button type="button" class="chip" data-v="Modern minimal">Modern minimal</button>
           <button type="button" class="chip" data-v="Corporate">Corporate / professional</button>
-          <button type="button" class="chip" data-v="Bold">Bold / creative</button>
+          <button type="button" class="chip" data-v="Bold creative">Bold / creative</button>
+          <button type="button" class="chip" data-v="Dark theme">Dark theme</button>
+          <button type="button" class="chip" data-v="Playful">Playful / fun</button>
           <button type="button" class="chip" data-v="Classic">Classic / traditional</button>
+          <button type="button" class="chip" data-v="Luxury">Luxury / high-end</button>
           <button type="button" class="chip" data-v="Not sure">Not sure</button>
         </div>
       </div>
 
       <div class="q">
+        <label for="f-colors">Preferred brand colours <span class="opt">(optional)</span></label>
+        <input type="text" id="f-colors" placeholder="e.g. Navy blue + gold, or #2D3A8C">
+      </div>
+
+      <div class="q">
         <label for="f-refs">Reference websites you like <span class="opt">(optional)</span></label>
-        <textarea id="f-refs" name="Reference Sites" placeholder="Paste links to websites you like the look of…"></textarea>
+        <div class="hint">Paste URLs of websites whose design, feel, or layout you like.</div>
+        <textarea id="f-refs" placeholder="e.g. stripe.com, linear.app, notion.so — I like the clean dark look…"></textarea>
+      </div>
+
+      <div class="q">
+        <label>How do you want to update website content after launch?</label>
+        <div class="radio-group" id="cms-rg">
+          <div class="radio-opt" data-v="Admin panel"><div class="dot"></div><span>Admin panel / CMS — I want to edit text & images myself</span></div>
+          <div class="radio-opt" data-v="Developer updates"><div class="dot"></div><span>Developer updates — I'll ask the Dark Basalt team each time</span></div>
+          <div class="radio-opt" data-v="Not sure"><div class="dot"></div><span>Not sure — need a recommendation</span></div>
+        </div>
       </div>
     </div>
   </div>
 
-  <!-- ══════════ STEP 4 — Domain & Hosting ══════════ -->
-  <div class="step" id="step4">
+  <!-- ════════════════════════════════════════
+       STEP 5 — Domain & Hosting
+  ════════════════════════════════════════ -->
+  <div class="step" id="step5">
     <div class="section">
       <div class="section-title">Domain &amp; Hosting</div>
 
       <div class="q">
-        <label>Do you have a domain name?</label>
+        <label>Do you have a domain name already?</label>
         <div class="radio-group" id="domain-rg">
-          <div class="radio-opt" data-v="Yes"><div class="dot"></div><span>Yes</span></div>
-          <div class="radio-opt" data-v="No"><div class="dot"></div><span>No — need to purchase one</span></div>
+          <div class="radio-opt" data-v="Yes"><div class="dot"></div><span>Yes — I own a domain</span></div>
+          <div class="radio-opt" data-v="No"><div class="dot"></div><span>No — need to buy one</span></div>
           <div class="radio-opt" data-v="Not sure"><div class="dot"></div><span>Not sure</span></div>
         </div>
       </div>
 
-      <div class="q">
-        <label for="f-domain-prov">Domain provider <span class="opt">(if you have one)</span></label>
-        <input type="text" id="f-domain-prov" name="Domain Provider" placeholder="e.g. GoDaddy, Namecheap, Hostinger, BigRock…">
+      <div class="two-col">
+        <div class="q">
+          <label for="f-domain-name">Domain name <span class="opt">(if you have one)</span></label>
+          <input type="text" id="f-domain-name" placeholder="e.g. mycompany.com">
+        </div>
+        <div class="q">
+          <label for="f-domain-prov">Domain provider</label>
+          <input type="text" id="f-domain-prov" placeholder="e.g. GoDaddy, Namecheap…">
+        </div>
       </div>
 
       <div class="q">
         <label>Do you have a hosting server?</label>
         <div class="radio-group" id="hosting-rg">
-          <div class="radio-opt" data-v="Yes"><div class="dot"></div><span>Yes</span></div>
-          <div class="radio-opt" data-v="No"><div class="dot"></div><span>No — need one</span></div>
+          <div class="radio-opt" data-v="Yes"><div class="dot"></div><span>Yes — I have hosting</span></div>
+          <div class="radio-opt" data-v="No"><div class="dot"></div><span>No — need one set up</span></div>
           <div class="radio-opt" data-v="Not sure"><div class="dot"></div><span>Not sure</span></div>
         </div>
       </div>
 
       <div class="q">
-        <label>Server type <span class="opt">(if you have one)</span></label>
+        <label>Server type <span class="opt">(if you have hosting)</span></label>
         <div class="chips" id="server-chips">
           <button type="button" class="chip" data-v="Shared">Shared hosting</button>
           <button type="button" class="chip" data-v="VPS">VPS</button>
           <button type="button" class="chip" data-v="Dedicated">Dedicated server</button>
-          <button type="button" class="chip" data-v="Cloud">Cloud (AWS / Azure / GCP)</button>
+          <button type="button" class="chip" data-v="Cloud">Cloud (AWS / GCP / Azure)</button>
           <button type="button" class="chip" data-v="NA">Not applicable</button>
         </div>
       </div>
 
       <div class="q">
-        <label for="f-server-detail">Hosting provider &amp; other projects on this server?</label>
-        <textarea id="f-server-detail" name="Server Details" placeholder="e.g. Hostinger shared — only this project / Bluehost VPS — 2 other sites hosted"></textarea>
+        <label for="f-server-detail">Hosting provider name &amp; any other sites on this server?</label>
+        <textarea id="f-server-detail" placeholder="e.g. Hostinger shared — only this project / Bluehost VPS — 2 other sites"></textarea>
       </div>
     </div>
   </div>
 
-  <!-- ══════════ STEP 5 — Features & Timeline ══════════ -->
-  <div class="step" id="step5">
+  <!-- ════════════════════════════════════════
+       STEP 6 — Features & Roadmap
+  ════════════════════════════════════════ -->
+  <div class="step" id="step6">
     <div class="section">
-      <div class="section-title">Features &amp; Timeline</div>
+      <div class="section-title">Features &amp; Roadmap</div>
+
+      <div class="info-box">
+        💡 Select what you need <strong>right now</strong> for Version 1, and separately what you're planning <strong>in the future</strong>. This helps us build with the right foundation.
+      </div>
 
       <div class="q">
-        <label>Features needed <span class="opt">(select all)</span></label>
+        <label>Features needed <strong>now</strong> (V1) <span class="opt">(select all)</span></label>
         <div class="chips" id="feat-chips">
           <button type="button" class="chip" data-v="Contact form">Contact form</button>
-          <button type="button" class="chip" data-v="WhatsApp">WhatsApp / chat</button>
+          <button type="button" class="chip" data-v="WhatsApp">WhatsApp / live chat</button>
           <button type="button" class="chip" data-v="Maps">Google Maps</button>
-          <button type="button" class="chip" data-v="Social">Social media links</button>
+          <button type="button" class="chip" data-v="Social links">Social media links</button>
           <button type="button" class="chip" data-v="Newsletter">Newsletter signup</button>
           <button type="button" class="chip" data-v="SEO">SEO optimisation</button>
-          <button type="button" class="chip" data-v="Analytics">Analytics</button>
-          <button type="button" class="chip" data-v="Multilingual">Multilingual</button>
+          <button type="button" class="chip" data-v="Analytics">Analytics (GA4)</button>
+          <button type="button" class="chip" data-v="Gallery">Image gallery / portfolio</button>
           <button type="button" class="chip" data-v="Booking">Appointment booking</button>
-          <button type="button" class="chip" data-v="Gallery">Image gallery</button>
+          <button type="button" class="chip" data-v="Video embed">Video embed</button>
+          <button type="button" class="chip" data-v="Testimonials slider">Testimonials slider</button>
+          <button type="button" class="chip" data-v="Countdown timer">Countdown timer</button>
           <button type="button" class="chip other-trigger" data-v="Other" data-target="feat-other">+ Other</button>
         </div>
         <div class="other-wrap" id="feat-other">
-          <input type="text" id="f-feat-other" name="Other Features" placeholder="Describe other features…">
+          <input type="text" id="f-feat-other" placeholder="Describe other features…">
         </div>
       </div>
 
       <div class="q">
-        <label>When do you need the site live?</label>
+        <label>Future enhancements (V2 / later) <span class="opt">(select all you're thinking about)</span></label>
+        <div class="hint">We'll build V1 so these can be added easily later — no extra cost now.</div>
+        <div class="chips" id="future-chips">
+          <button type="button" class="chip" data-v="E-commerce">E-commerce / online store</button>
+          <button type="button" class="chip" data-v="Client portal">Client / member portal</button>
+          <button type="button" class="chip" data-v="Subscription">Subscription / SaaS billing</button>
+          <button type="button" class="chip" data-v="Mobile app">Mobile app (iOS / Android)</button>
+          <button type="button" class="chip" data-v="CRM integration">CRM integration (HubSpot, Salesforce…)</button>
+          <button type="button" class="chip" data-v="Multilingual">Multilingual / multi-region</button>
+          <button type="button" class="chip" data-v="AI chatbot">AI chatbot</button>
+          <button type="button" class="chip" data-v="Job board">Job board / careers portal</button>
+          <button type="button" class="chip" data-v="Landing pages">Ad landing pages</button>
+          <button type="button" class="chip" data-v="Affiliate">Affiliate / referral programme</button>
+          <button type="button" class="chip" data-v="None">None planned right now</button>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="f-integrations">Any existing tools we should integrate with? <span class="opt">(optional)</span></label>
+        <input type="text" id="f-integrations" placeholder="e.g. Mailchimp, Stripe, Calendly, Notion, Zapier…">
+      </div>
+
+      <div class="q">
+        <label>When do you need Version 1 live?</label>
         <div class="radio-group" id="timeline-rg">
-          <div class="radio-opt" data-v="ASAP"><div class="dot"></div><span>ASAP — within 2 weeks</span></div>
-          <div class="radio-opt" data-v="1 month"><div class="dot"></div><span>Within 1 month</span></div>
+          <div class="radio-opt" data-v="This weekend"><div class="dot"></div><span>This weekend — ASAP</span></div>
+          <div class="radio-opt" data-v="Within 2 weeks"><div class="dot"></div><span>Within 2 weeks</span></div>
+          <div class="radio-opt" data-v="Within 1 month"><div class="dot"></div><span>Within 1 month</span></div>
           <div class="radio-opt" data-v="2-3 months"><div class="dot"></div><span>2–3 months</span></div>
           <div class="radio-opt" data-v="Flexible"><div class="dot"></div><span>Flexible — no hard deadline</span></div>
         </div>
       </div>
 
       <div class="q">
+        <label for="f-budget">Approximate budget range <span class="opt">(optional but helpful)</span></label>
+        <select id="f-budget">
+          <option value="">— Select a range —</option>
+          <option value="Under $500">Under $500</option>
+          <option value="$500–$1,000">$500 – $1,000</option>
+          <option value="$1,000–$3,000">$1,000 – $3,000</option>
+          <option value="$3,000–$7,000">$3,000 – $7,000</option>
+          <option value="$7,000+">$7,000+</option>
+          <option value="Prefer to discuss">Prefer to discuss on call</option>
+        </select>
+      </div>
+
+      <div class="q">
         <label for="f-notes">Anything else we should know? <span class="opt">(optional)</span></label>
-        <textarea id="f-notes" name="Additional Notes" placeholder="Any special requirements, concerns, or ideas…"></textarea>
+        <textarea id="f-notes" placeholder="Any special requirements, concerns, inspiration, or ideas you'd like us to know about…"></textarea>
       </div>
     </div>
   </div>
 
-  <!-- SUCCESS SCREEN (shown after submit) -->
+  <!-- ════════════════════════════════════════
+       STEP 7 — Schedule a Discovery Call
+  ════════════════════════════════════════ -->
+  <div class="step" id="step7">
+    <div class="section">
+      <div class="section-title">Schedule a Discovery Call</div>
+
+      <div class="info-box">
+        📅 Let us know when works for you and we'll confirm a time. The call is 15–30 minutes — we'll go over your answers and finalize the plan.
+      </div>
+
+      <div class="q">
+        <label>Preferred meeting format</label>
+        <div class="radio-group" id="meet-format-rg">
+          <div class="radio-opt" data-v="Google Meet"><div class="dot"></div><span>Google Meet</span></div>
+          <div class="radio-opt" data-v="Zoom"><div class="dot"></div><span>Zoom</span></div>
+          <div class="radio-opt" data-v="WhatsApp call"><div class="dot"></div><span>WhatsApp call / voice note</span></div>
+          <div class="radio-opt" data-v="Phone call"><div class="dot"></div><span>Regular phone call</span></div>
+          <div class="radio-opt" data-v="No call needed"><div class="dot"></div><span>No call needed — handle everything over chat / email</span></div>
+        </div>
+      </div>
+
+      <div class="two-col">
+        <div class="q">
+          <label for="f-meet-date">Preferred date</label>
+          <input type="date" id="f-meet-date">
+        </div>
+        <div class="q">
+          <label for="f-meet-time">Preferred time</label>
+          <input type="time" id="f-meet-time">
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="f-timezone">Your timezone</label>
+        <select id="f-timezone">
+          <option value="">— Select your timezone —</option>
+          <option value="IST (UTC+5:30)">IST — India Standard Time (UTC+5:30)</option>
+          <option value="EST (UTC-5)">EST — Eastern (UTC-5)</option>
+          <option value="CST (UTC-6)">CST — Central (UTC-6)</option>
+          <option value="MST (UTC-7)">MST — Mountain (UTC-7)</option>
+          <option value="PST (UTC-8)">PST — Pacific (UTC-8)</option>
+          <option value="GMT (UTC+0)">GMT — London (UTC+0)</option>
+          <option value="CET (UTC+1)">CET — Central Europe (UTC+1)</option>
+          <option value="GST (UTC+4)">GST — Dubai (UTC+4)</option>
+          <option value="SGT (UTC+8)">SGT — Singapore (UTC+8)</option>
+          <option value="AEST (UTC+10)">AEST — Sydney (UTC+10)</option>
+        </select>
+      </div>
+
+      <div class="q">
+        <label>What time of day works best for you?</label>
+        <div class="chips" id="time-pref-chips">
+          <button type="button" class="chip" data-v="Morning (8am–12pm)">Morning (8am–12pm)</button>
+          <button type="button" class="chip" data-v="Afternoon (12pm–5pm)">Afternoon (12pm–5pm)</button>
+          <button type="button" class="chip" data-v="Evening (5pm–9pm)">Evening (5pm–9pm)</button>
+          <button type="button" class="chip" data-v="Weekends only">Weekends only</button>
+          <button type="button" class="chip" data-v="Anytime">Anytime — I'm flexible</button>
+        </div>
+      </div>
+
+      <div class="q">
+        <label for="f-meet-alt">Alternative dates / times <span class="opt">(optional)</span></label>
+        <input type="text" id="f-meet-alt" placeholder="e.g. May 31st morning, or Jun 1st after 6pm IST">
+      </div>
+
+      <div class="q">
+        <label for="f-meet-notes">Anything specific you'd like to discuss on the call? <span class="opt">(optional)</span></label>
+        <textarea id="f-meet-notes" placeholder="e.g. Want to show you our current branding / discuss pricing in detail / confirm the timeline…"></textarea>
+      </div>
+    </div>
+  </div>
+
+  <!-- SUCCESS SCREEN -->
   <div id="success-screen">
     <div class="success-icon">✅</div>
-    <h2>Answers submitted!</h2>
-    <p>Thank you — we've received your questionnaire.<br>We'll review your answers and be in touch within 1–2 business days.</p>
+    <h2>You're all set!</h2>
+    <p>We've received your questionnaire. The Dark Basalt team will review everything and reach out within <strong>24 hours</strong> to confirm your discovery call and next steps.</p>
+    <div class="success-brand">
+      <div style="width:20px;height:20px;border-radius:5px;background:linear-gradient(135deg,#6366f1,#7c3aed);display:flex;align-items:center;justify-content:center;font-size:9px;font-weight:700;color:#fff">DB</div>
+      Dark Basalt — We build websites that work
+    </div>
   </div>
 
   <!-- FOOTER -->
   <div class="footer" id="footer">
-    <button type="button" class="btn-sec" id="btn-back" style="display:none">← Back</button>
-    <button type="button" class="btn-pri" id="btn-next">Next →</button>
+    <div class="footer-left" id="step-label">Step 1 of 7</div>
+    <div class="footer-btns">
+      <button type="button" class="btn-sec" id="btn-back" style="display:none">← Back</button>
+      <button type="button" class="btn-pri" id="btn-next">Next →</button>
+    </div>
   </div>
 
 </div><!-- /card -->
 
 <script>
-  /* ─── STATE ─────────────────────────────────── */
+  /* ─── STATE ───────────────────────────────────── */
   let cur = 1;
-  const TOTAL = 5;
+  const TOTAL = 7;
   const FORMSPREE_URL = 'https://formspree.io/f/meednbdz';
+  const STEP_LABELS = [
+    'Basic Info', 'Your Business', 'Pages & Content',
+    'Design & Admin', 'Domain & Hosting', 'Features & Roadmap', 'Schedule a Call'
+  ];
 
-  /* ─── STEP NAVIGATION ───────────────────────── */
+  /* ─── NAVIGATION ──────────────────────────────── */
   function goTo(n) {
     document.getElementById('step' + cur).classList.remove('active');
     cur = n;
     document.getElementById('step' + cur).classList.add('active');
     document.getElementById('prog').style.width = (cur / TOTAL * 100) + '%';
     document.getElementById('btn-back').style.display = cur > 1 ? '' : 'none';
-    document.getElementById('btn-next').innerHTML = cur === TOTAL
-      ? 'Submit answers ✉'
-      : 'Next →';
+    document.getElementById('btn-next').innerHTML =
+      cur === TOTAL ? 'Submit ↗' : 'Next →';
+    document.getElementById('step-label').textContent =
+      'Step ' + cur + ' of ' + TOTAL + ' — ' + STEP_LABELS[cur - 1];
 
     for (let i = 1; i <= TOTAL; i++) {
       const sd = document.getElementById('sd' + i);
-      if (i < cur)      { sd.className = 'step-dot done'; sd.textContent = '✓'; }
+      if (i < cur)       { sd.className = 'step-dot done'; sd.textContent = '✓'; }
       else if (i === cur){ sd.className = 'step-dot cur';  sd.textContent = i; }
       else               { sd.className = 'step-dot';      sd.textContent = i; }
-      if (i < TOTAL) {
+      if (i < TOTAL)
         document.getElementById('sl' + i).className = 'step-line' + (i < cur ? ' done' : '');
-      }
     }
     document.getElementById('error-banner').style.display = 'none';
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -543,7 +929,10 @@
     if (cur > 1) goTo(cur - 1);
   });
 
-  /* ─── CHIPS ─────────────────────────────────── */
+  // Init label
+  document.getElementById('step-label').textContent = 'Step 1 of ' + TOTAL + ' — ' + STEP_LABELS[0];
+
+  /* ─── CHIPS ───────────────────────────────────── */
   document.querySelectorAll('.chips').forEach(group => {
     group.addEventListener('click', e => {
       const chip = e.target.closest('.chip');
@@ -558,7 +947,7 @@
     });
   });
 
-  /* ─── RADIO GROUPS ──────────────────────────── */
+  /* ─── RADIO GROUPS ────────────────────────────── */
   document.querySelectorAll('.radio-group').forEach(group => {
     group.addEventListener('click', e => {
       const opt = e.target.closest('.radio-opt');
@@ -568,45 +957,122 @@
     });
   });
 
-  /* ─── COLLECT DATA ──────────────────────────── */
-  function val(id)   { const el = document.getElementById(id); return el ? el.value.trim() : ''; }
-  function chips(id) { return [...document.querySelectorAll('#' + id + ' .chip.on')].map(c => c.dataset.v).join(', '); }
-  function radio(id) { const el = document.querySelector('#' + id + ' .radio-opt.on'); return el ? el.dataset.v : ''; }
+  /* ─── FILE UPLOAD UI ─────────────────────────── */
+  const fileInput   = document.getElementById('f-attachment');
+  const dropZone    = document.getElementById('file-drop-zone');
+  const filePreview = document.getElementById('file-preview');
 
-  function collectData() {
-    return {
-      'Company Name':        val('f-name'),
-      'email':               val('f-email'),   // lowercase — Formspree uses this as reply-to
-      'Current URL':         val('f-url'),
-      'About Company':       val('f-about'),
-      'Primary Contact':     val('f-contact'),
-      'Pages Needed':        chips('pages-chips'),
-      'Other Pages':         val('f-pages-other'),
-      'Blog':                radio('blog-rg'),
-      'Content Ready':       radio('copy-rg'),
-      'Content Management':  radio('cms-rg'),
-      'Media Assets':        chips('media-chips'),
-      'Design Style':        chips('style-chips'),
-      'Reference Sites':     val('f-refs'),
-      'Domain':              radio('domain-rg'),
-      'Domain Provider':     val('f-domain-prov'),
-      'Hosting':             radio('hosting-rg'),
-      'Server Type':         chips('server-chips'),
-      'Server Details':      val('f-server-detail'),
-      'Features Needed':     chips('feat-chips'),
-      'Other Features':      val('f-feat-other'),
-      'Timeline':            radio('timeline-rg'),
-      'Additional Notes':    val('f-notes'),
-    };
+  function formatBytes(b) {
+    return b < 1024 ? b + ' B' : b < 1048576 ? (b/1024).toFixed(1) + ' KB' : (b/1048576).toFixed(1) + ' MB';
+  }
+  function fileIcon(name) {
+    const ext = name.split('.').pop().toLowerCase();
+    return { pdf:'📕', png:'🖼️', jpg:'🖼️', jpeg:'🖼️', gif:'🖼️', svg:'🎨',
+             doc:'📝', docx:'📝', zip:'🗜️' }[ext] || '📄';
+  }
+  function showPreview(file) {
+    document.getElementById('file-preview-icon').textContent = fileIcon(file.name);
+    document.getElementById('file-preview-name').textContent = file.name;
+    document.getElementById('file-preview-size').textContent = formatBytes(file.size);
+    filePreview.classList.add('show');
+    dropZone.style.display = 'none';
+  }
+  function clearFile() {
+    fileInput.value = '';
+    filePreview.classList.remove('show');
+    dropZone.style.display = '';
   }
 
-  /* ─── SUBMIT TO FORMSPREE ───────────────────── */
-  async function submitForm() {
-    const data = collectData();
+  fileInput.addEventListener('change', () => {
+    if (fileInput.files[0]) showPreview(fileInput.files[0]);
+  });
+  document.getElementById('file-remove').addEventListener('click', clearFile);
 
-    // basic validation
-    if (!data['Company Name'] && !data['email']) {
-      alert('Please fill in at least your company name and email before submitting.');
+  // drag-and-drop visual feedback
+  dropZone.addEventListener('dragover',  e => { e.preventDefault(); dropZone.classList.add('drag-over'); });
+  dropZone.addEventListener('dragleave', () => dropZone.classList.remove('drag-over'));
+  dropZone.addEventListener('drop', e => {
+    e.preventDefault();
+    dropZone.classList.remove('drag-over');
+    const file = e.dataTransfer.files[0];
+    if (file) { fileInput.files = e.dataTransfer.files; showPreview(file); }
+  });
+
+  /* ─── COLLECT DATA ────────────────────────────── */
+  const v = id  => { const el = document.getElementById(id); return el ? el.value.trim() : ''; };
+  const ch = id => [...document.querySelectorAll('#' + id + ' .chip.on')].map(c => c.dataset.v).join(', ');
+  const ra = id => { const el = document.querySelector('#' + id + ' .radio-opt.on'); return el ? el.dataset.v : ''; };
+
+  function buildFormData() {
+    const fd = new FormData();
+    const fields = {
+      /* Step 1 */
+      'Company Name':         v('f-name'),
+      'email':                v('f-email'),
+      'Phone / WhatsApp':     v('f-phone'),
+      'Contact Person':       v('f-contact'),
+      'Current Website':      v('f-url'),
+      'Location':             v('f-location'),
+      /* Step 2 */
+      'About the Company':    v('f-about'),
+      'Industry':             v('f-industry'),
+      'Target Audience':      v('f-audience'),
+      'Problem Solved':       v('f-problem'),
+      'USP / Differentiator': v('f-usp'),
+      'Tagline':              v('f-tagline'),
+      'Competitors':          v('f-competitors'),
+      'Primary CTA':          ra('cta-rg'),
+      /* Step 3 */
+      'Pages Needed':         ch('pages-chips'),
+      'Other Pages':          v('f-pages-other'),
+      'Blog':                 ra('blog-rg'),
+      'Content Ready':        ra('copy-rg'),
+      'Media Assets':         ch('media-chips'),
+      /* Step 4 */
+      'Design Style':         ch('style-chips'),
+      'Brand Colours':        v('f-colors'),
+      'Reference Websites':   v('f-refs'),
+      'Content Management':   ra('cms-rg'),
+      /* Step 5 */
+      'Domain':               ra('domain-rg'),
+      'Domain Name':          v('f-domain-name'),
+      'Domain Provider':      v('f-domain-prov'),
+      'Hosting':              ra('hosting-rg'),
+      'Server Type':          ch('server-chips'),
+      'Server Details':       v('f-server-detail'),
+      /* Step 6 */
+      'V1 Features Needed':   ch('feat-chips'),
+      'Other Features':       v('f-feat-other'),
+      'Future Enhancements':  ch('future-chips'),
+      'Integrations':         v('f-integrations'),
+      'Timeline':             ra('timeline-rg'),
+      'Budget Range':         v('f-budget'),
+      'Additional Notes':     v('f-notes'),
+      /* Step 7 */
+      'Meeting Format':       ra('meet-format-rg'),
+      'Preferred Date':       v('f-meet-date'),
+      'Preferred Time':       v('f-meet-time'),
+      'Timezone':             v('f-timezone'),
+      'Time Preference':      ch('time-pref-chips'),
+      'Alternative Times':    v('f-meet-alt'),
+      'Call Notes':           v('f-meet-notes'),
+    };
+    for (const [key, val] of Object.entries(fields)) {
+      if (val) fd.append(key, val);
+    }
+    // attach file if selected
+    const file = fileInput.files[0];
+    if (file) fd.append('attachment', file);
+    return fd;
+  }
+
+  /* ─── SUBMIT ──────────────────────────────────── */
+  async function submitForm() {
+    const name  = v('f-name');
+    const email = v('f-email');
+
+    if (!name && !email) {
+      alert('Please fill in at least your company name and email on Step 1 before submitting.');
       goTo(1);
       return;
     }
@@ -617,35 +1083,34 @@
     document.getElementById('error-banner').style.display = 'none';
 
     try {
-      const response = await fetch(FORMSPREE_URL, {
+      // Use FormData (multipart) so file attachments are transmitted
+      const res = await fetch(FORMSPREE_URL, {
         method:  'POST',
-        headers: { 'Content-Type': 'application/json', 'Accept': 'application/json' },
-        body:    JSON.stringify(data),
+        headers: { 'Accept': 'application/json' }, // NO Content-Type header — browser sets it with boundary
+        body:    buildFormData(),
       });
 
-      if (response.ok) {
-        // hide all steps + footer, show success
+      if (res.ok) {
         for (let i = 1; i <= TOTAL; i++) {
           const s = document.getElementById('step' + i);
           if (s) s.style.display = 'none';
         }
-        document.getElementById('footer').style.display = 'none';
-        document.querySelector('.step-ind').style.display = 'none';
-        document.querySelector('.progress').style.display = 'none';
+        document.getElementById('footer').style.display       = 'none';
+        document.querySelector('.step-scroll').style.display  = 'none';
+        document.querySelector('.progress').style.display     = 'none';
         document.getElementById('success-screen').style.display = 'block';
       } else {
-        // Log Formspree's actual error body for debugging
-        const errBody = await response.json().catch(() => ({}));
-        console.error('Formspree error', response.status, errBody);
-        throw new Error('Server error ' + response.status + ' — ' + (errBody.error || JSON.stringify(errBody)));
+        const errBody = await res.json().catch(() => ({}));
+        console.error('Formspree error', res.status, errBody);
+        throw new Error(res.status + ' — ' + (errBody.error || JSON.stringify(errBody)));
       }
     } catch (err) {
       console.error(err);
       const banner = document.getElementById('error-banner');
-      banner.textContent = '⚠️ ' + err.message;
+      banner.textContent = '⚠️ Submission failed: ' + err.message + '. Please try again or WhatsApp us directly.';
       banner.style.display = 'block';
       btn.disabled = false;
-      btn.innerHTML = 'Submit answers ✉';
+      btn.innerHTML = 'Submit ↗';
     }
   }
 </script>
